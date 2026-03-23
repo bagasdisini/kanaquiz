@@ -2,12 +2,20 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
+  target: 'web',
+  entry: './src/index.js',
+  devtool: 'eval-source-map',
+  devServer: {
+    hot: false,
+    liveReload: true
+  },
   resolve: {
     extensions: ['.js', '.jsx']
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './index.html'
+      template: './index.html',
+      scriptLoading: 'defer'
     })
   ],
   module: {
@@ -22,18 +30,9 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1
-            }
-          },
-          {
-            loader: 'postcss-loader'
-          }
+          'style-loader',
+          'css-loader',
+          'sass-loader'
         ]
       },
       {
@@ -41,12 +40,13 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(png|jpg|svg|woff|woff2)?(\?v=\d+.\d+.\d+)?$/,
-        loader: 'url-loader?limit=25000'
-      }, 
-      {
-        test: /\.(eot|ttf)$/,
-        loader: 'file-loader'
+        test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf)$/i,
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 25 * 1024
+          }
+        }
       }
     ]
   }

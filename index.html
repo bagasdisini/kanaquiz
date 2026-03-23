@@ -15,6 +15,34 @@
       }
       .app-update.show { display: block; }
       .avoidwrap { display: inline-block; }
+      .legacy-notice-static {
+        background: #fff7d6;
+        border: 1px solid #f0d98a;
+        box-sizing: border-box;
+        color: #6f5610;
+        margin: 50px 0 0;
+        padding: 14px 18px;
+        position: relative;
+        text-align: center;
+      }
+      .legacy-notice-static a {
+        color: #8a5b00;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      .legacy-notice-close {
+        appearance: none;
+        background: transparent;
+        border: 0;
+        color: #8a5b00;
+        cursor: pointer;
+        font-size: 22px;
+        line-height: 1;
+        padding: 0;
+        position: absolute;
+        right: 10px;
+        top: 8px;
+      }
     </style>
     <title>Kana Pro: Learn hiragana & katakana fast and easy</title>
     <meta charset="UTF-8">
@@ -23,6 +51,11 @@
     <meta name="Description" content="Application for studying hiragana & katakana characters.">
   </head>
   <body>
+    <div class="legacy-notice-static" id="legacy-notice-static">
+      <button class="legacy-notice-close" aria-label="Close legacy notice" onclick="dismissLegacyNotice()">&times;</button>
+      This is a legacy version of Kana Pro. Try the
+      <a href="https://kana.pro/">new version</a>!
+    </div>
     <div id="app"></div>
 
     <button id="app-update" class="app-update">
@@ -30,10 +63,39 @@
       <span class="avoidwrap">Click here to update.</span>
     </button>
 
-    <script
-      defer
-      async
-      src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"
-    ></script>
+    <script>
+      function setLegacyNoticeState(isDismissed) {
+        if (document.body) {
+          document.body.classList.toggle('legacy-notice-visible', !isDismissed);
+          document.body.classList.toggle('legacy-notice-hidden', isDismissed);
+        }
+      }
+
+      function dismissLegacyNotice() {
+        var notice = document.getElementById('legacy-notice-static');
+        if (notice) {
+          notice.style.display = 'none';
+        }
+
+        try {
+          localStorage.setItem('kanaProLegacyNoticeDismissed', 'true');
+        } catch (error) {}
+
+        setLegacyNoticeState(true);
+      }
+
+      try {
+        if (localStorage.getItem('kanaProLegacyNoticeDismissed') === 'true') {
+          var notice = document.getElementById('legacy-notice-static');
+          if (notice) {
+            notice.style.display = 'none';
+          }
+
+          setLegacyNoticeState(true);
+        } else {
+          setLegacyNoticeState(false);
+        }
+      } catch (error) {}
+    </script>
   </body>
 </html>

@@ -33,7 +33,10 @@ body {
   }
 }
 .game {
-  padding-top: 70px;
+  padding-top: 58px;
+}
+body.legacy-notice-visible .game {
+  padding-top: 0;
 }
 .glyphicon-none:before {
   content: "\2122";

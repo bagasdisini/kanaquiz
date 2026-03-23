@@ -1,29 +1,68 @@
-import { Workbox } from 'workbox-window';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Bootstrap from './assets/stylesheets/bootstrap.min.css';
+import './assets/stylesheets/bootstrap.min.css';
 import App from './components/App/App';
 
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    const wb = new Workbox("/sw.js");
-    const updateButton = document.querySelector("#app-update");
-    // Fires when the registered service worker has installed but is waiting to activate.
-    wb.addEventListener("waiting", event => {
-      updateButton.classList.add("show");
-      updateButton.addEventListener("click", () => {
-      // Set up a listener that will reload the page as soon as the previously waiting service worker has taken control.
-      wb.addEventListener("controlling", event => {
-        window.location.reload();
+if (process.env.NODE_ENV !== 'production' && 'serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    registrations.forEach((registration) => {
+      registration.unregister();
+    });
+  });
+
+  if ('caches' in window) {
+    caches.keys().then((cacheNames) => {
+      cacheNames.forEach((cacheName) => {
+        caches.delete(cacheName);
       });
-
-      // Send a message telling the service worker to skip waiting.
-      // This will trigger the `controlling` event handler above.
-      wb.messageSW({ type: "SKIP_WAITING" });
     });
+  }
+}
+
+if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+  window.addEventListener('load', async () => {
+    const updateButton = document.querySelector("#app-update");
+
+    const showUpdatePrompt = (waitingWorker) => {
+      updateButton.classList.add("show");
+      updateButton.onclick = () => {
+        waitingWorker.postMessage({ type: 'SKIP_WAITING' });
+      };
+    };
+
+    let isRefreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (isRefreshing) {
+        return;
+      }
+
+      isRefreshing = true;
+      window.location.reload();
     });
 
-    wb.register();
+    try {
+      const registration = await navigator.serviceWorker.register('/sw.js');
+
+      if (registration.waiting) {
+        showUpdatePrompt(registration.waiting);
+      }
+
+      registration.addEventListener('updatefound', () => {
+        const installingWorker = registration.installing;
+
+        if (!installingWorker) {
+          return;
+        }
+
+        installingWorker.addEventListener('statechange', () => {
+          if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            showUpdatePrompt(installingWorker);
+          }
+        });
+      });
+    } catch (error) {
+      console.error('Service worker registration failed', error);
+    }
   });
 }
 
