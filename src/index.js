@@ -41,7 +41,9 @@ if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     });
 
     try {
-      const registration = await navigator.serviceWorker.register('/sw.js');
+      // Keep the service worker scoped to the current mount point so the app
+      // can be hosted from /legacy without claiming the whole origin.
+      const registration = await navigator.serviceWorker.register('sw.js');
 
       if (registration.waiting) {
         showUpdatePrompt(registration.waiting);
