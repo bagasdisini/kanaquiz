@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { kanaDictionary } from '../../data/kanaDictionary';
 import { quizSettings } from '../../data/quizSettings';
 import { findRomajisAtKanaKey, removeFromArray, arrayContains, shuffle, cartesianProduct } from '../../data/helperFuncs';
+import EndlessTyping from './EndlessTyping';
 import './Question.scss';
 
 class Question extends Component {
@@ -219,6 +220,15 @@ class Question extends Component {
   }
 
   render() {
+    // Stage 5: Endless typing mode
+    if (this.props.stage == 5) {
+      return (
+        <div className="text-center question col-xs-12">
+          <EndlessTyping decidedGroups={this.props.decidedGroups} />
+        </div>
+      );
+    }
+
     let btnClass = "btn btn-default answer-button";
     if ('ontouchstart' in window)
       btnClass += " no-hover"; // disables hover effect on touch screens

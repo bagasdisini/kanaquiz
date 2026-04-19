@@ -5,8 +5,8 @@ import Game from '../Game/Game';
 
 class GameContainer extends Component {
   state = {
-    stage:1,
-    isLocked: false,
+    stage: JSON.parse(localStorage.getItem('lockedStage')) || 1,
+    isLocked: JSON.parse(localStorage.getItem('isLocked')) || false,
     decidedGroups: JSON.parse(localStorage.getItem('decidedGroups') || null) || []
   }
 
@@ -18,8 +18,8 @@ class GameContainer extends Component {
   startGame = decidedGroups => {
     if(parseInt(this.state.stage)<1 || isNaN(parseInt(this.state.stage)))
       this.setState({stage: 1});
-    else if(parseInt(this.state.stage)>4)
-      this.setState({stage: 4});
+    else if(parseInt(this.state.stage)>5)
+      this.setState({stage: 5});
 
     this.setState({decidedGroups: decidedGroups});
     localStorage.setItem('decidedGroups', JSON.stringify(decidedGroups));
@@ -32,10 +32,16 @@ class GameContainer extends Component {
 
   lockStage = (stage, forceLock) => {
     // if(stage<1 || stage>4) stage=1; // don't use this to allow backspace
-    if(forceLock)
+    let newLocked;
+    if(forceLock) {
+      newLocked = true;
       this.setState({stage: stage, isLocked: true});
-    else
-      this.setState({stage: stage, isLocked: !this.state.isLocked});
+    } else {
+      newLocked = !this.state.isLocked;
+      this.setState({stage: stage, isLocked: newLocked});
+    }
+    localStorage.setItem('lockedStage', JSON.stringify(stage));
+    localStorage.setItem('isLocked', JSON.stringify(newLocked));
   }
 
   render() {

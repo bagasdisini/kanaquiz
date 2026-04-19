@@ -1,0 +1,203 @@
+.endless-typing {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 0;
+  outline: none;
+
+  .endless-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+
+    .stat {
+      padding: 6px 16px;
+      border-radius: 4px;
+      background: #e8e8e8;
+      color: #555;
+
+      .stat-value {
+        font-weight: bold;
+        margin-left: 4px;
+      }
+
+      &.stat-correct .stat-value {
+        color: #5cb85c;
+      }
+
+      &.stat-wrong .stat-value {
+        color: #d9534f;
+      }
+
+      &.stat-accuracy .stat-value {
+        color: #5bc0de;
+      }
+    }
+  }
+
+  .rows-viewport {
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border: 1px solid #e0e0e0;
+  }
+
+  .rows-slider {
+    transition: none;
+
+    &.scroll-up {
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+  }
+
+  .kana-row {
+    display: flex;
+    justify-content: center;
+    padding: 10px 5px;
+    border-bottom: 1px solid #eee;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .kana-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 80px;
+    margin: 0 2px;
+    border-radius: 6px;
+    position: relative;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+
+    .kana-char {
+      font-size: 2em;
+      line-height: 1.2;
+      color: #333;
+      transition: color 0.2s ease;
+    }
+
+    .romaji-label {
+      font-size: 0.8em;
+      margin-top: 2px;
+      height: 16px;
+      color: #999;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    // Active cell (cursor)
+    &.cell-active {
+      background: #f0f4ff;
+      box-shadow: 0 0 0 2px #5bc0de;
+      transform: scale(1.05);
+
+      .kana-char {
+        color: #111;
+      }
+    }
+
+    &.cell-active::after {
+      content: '';
+      position: absolute;
+      bottom: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 2px;
+      background: #5bc0de;
+      animation: blink-cursor 1s step-end infinite;
+    }
+
+    // Correct
+    &.cell-correct {
+      background: rgba(92, 184, 92, 0.12);
+
+      .kana-char {
+        color: #5cb85c;
+      }
+
+      .romaji-label {
+        opacity: 1;
+        color: #5cb85c;
+      }
+    }
+
+    // Wrong
+    &.cell-wrong {
+      background: rgba(217, 83, 79, 0.12);
+
+      .kana-char {
+        color: #d9534f;
+      }
+
+      .romaji-label {
+        opacity: 1;
+        color: #d9534f;
+      }
+    }
+
+    // Pending (not yet answered)
+    &.cell-pending {
+      .kana-char {
+        color: #666;
+      }
+    }
+
+    @media (max-width: 768px) {
+      width: 32px;
+      height: 56px;
+      margin: 0 1px;
+
+      .kana-char {
+        font-size: 1.3em;
+      }
+
+      .romaji-label {
+        font-size: 0.6em;
+      }
+    }
+  }
+
+  .input-buffer-display {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 1.6em;
+    color: #5bc0de;
+    height: 40px;
+    line-height: 40px;
+
+    .buffer-text {
+      display: inline-block;
+      min-width: 60px;
+      border-bottom: 2px solid #5bc0de;
+      padding: 0 8px;
+      letter-spacing: 2px;
+    }
+
+    .buffer-hint {
+      display: block;
+      font-size: 0.5em;
+      color: #aaa;
+      margin-top: 4px;
+    }
+  }
+
+  .endless-hint {
+    text-align: center;
+    margin-top: 20px;
+    color: #aaa;
+    font-size: 0.9em;
+  }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
