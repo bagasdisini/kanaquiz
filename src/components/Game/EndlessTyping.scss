@@ -14,8 +14,8 @@
     .stat {
       padding: 6px 16px;
       border-radius: 4px;
-      background: #e8e8e8;
-      color: #555;
+      background: var(--bg-stat);
+      color: var(--text-stat);
 
       .stat-value {
         font-weight: bold;
@@ -40,9 +40,9 @@
     overflow: hidden;
     position: relative;
     border-radius: 8px;
-    background: #fff;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    border: 1px solid #e0e0e0;
+    background: var(--bg-viewport);
+    box-shadow: 0 2px 12px var(--shadow-viewport);
+    border: 1px solid var(--border-viewport);
   }
 
   .rows-slider {
@@ -57,7 +57,7 @@
     display: flex;
     justify-content: center;
     padding: 10px 5px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-kana-row);
 
     &:last-child {
       border-bottom: none;
@@ -79,7 +79,7 @@
     .kana-char {
       font-size: 2em;
       line-height: 1.2;
-      color: #333;
+      color: var(--text-kana);
       transition: color 0.2s ease;
     }
 
@@ -87,19 +87,19 @@
       font-size: 0.8em;
       margin-top: 2px;
       height: 16px;
-      color: #999;
+      color: var(--text-romaji);
       opacity: 0;
       transition: opacity 0.3s ease;
     }
 
     // Active cell (cursor)
     &.cell-active {
-      background: #f0f4ff;
+      background: var(--bg-cell-active);
       box-shadow: 0 0 0 2px #5bc0de;
       transform: scale(1.05);
 
       .kana-char {
-        color: #111;
+        color: var(--text-kana-active);
       }
     }
 
@@ -146,7 +146,7 @@
     // Pending (not yet answered)
     &.cell-pending {
       .kana-char {
-        color: #666;
+        color: var(--text-kana-pending);
       }
     }
 
@@ -169,14 +169,14 @@
     text-align: center;
     margin-top: 16px;
     font-size: 1.6em;
-    color: #5bc0de;
+    color: var(--text-buffer);
     height: 40px;
     line-height: 40px;
 
     .buffer-text {
       display: inline-block;
       min-width: 60px;
-      border-bottom: 2px solid #5bc0de;
+      border-bottom: 2px solid var(--border-buffer);
       padding: 0 8px;
       letter-spacing: 2px;
     }
@@ -184,7 +184,7 @@
     .buffer-hint {
       display: block;
       font-size: 0.5em;
-      color: #aaa;
+      color: var(--text-buffer-hint);
       margin-top: 4px;
     }
   }
@@ -192,7 +192,7 @@
   .endless-hint {
     text-align: center;
     margin-top: 20px;
-    color: #aaa;
+    color: var(--text-buffer-hint);
     font-size: 0.9em;
   }
 }

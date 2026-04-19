@@ -1,3 +1,136 @@
+/* ===== Theme Variables ===== */
+:root,
+[data-theme="light"] {
+  --bg-body: #e5e5e5;
+  --bg-outer: #f5f5f5;
+  --bg-panel: #fff;
+  --bg-panel-heading: #f5f5f5;
+  --bg-panel-footer: #f5f5f5;
+  --border-outer: #dadada;
+  --border-panel: #ddd;
+  --text-primary: #111;
+  --text-secondary: #555;
+  --text-muted: #888;
+  --text-link: #337ab7;
+  --bg-navbar: #333;
+  --text-navbar: #fff;
+  --text-navbar-hover: #bbb;
+  --bg-choose-row-hover: #f4f4f4;
+  --border-choose-row: #eee;
+  --bg-alt-row: #fafafa;
+  --border-divider: #ddd;
+  --color-check: green;
+  --color-unchecked: #ccc;
+  --color-check-half: #ccc;
+  --text-panel-heading-span: #aaa;
+  --bg-switch: #e5e5e5;
+  --border-switch: #ccc;
+  --bg-switch-toggle: #eee;
+  --border-switch-toggle: #999;
+  --shadow-switch-toggle: #ccc;
+  --border-stage-choice: #999;
+  --bg-progress: #ddd;
+  --text-progress: #444;
+  --bg-result-none: #aaa;
+  --text-result: #f5f5f5;
+  --bg-answer-btn: #fff;
+  --border-answer-btn: #ccc;
+  --border-answer-input: #aaa;
+  --text-answer-input: #111;
+  --bg-stat: #e8e8e8;
+  --text-stat: #555;
+  --bg-viewport: #fff;
+  --border-viewport: #e0e0e0;
+  --shadow-viewport: rgba(0,0,0,0.08);
+  --border-kana-row: #eee;
+  --text-kana: #333;
+  --text-kana-pending: #666;
+  --bg-cell-active: #f0f4ff;
+  --text-kana-active: #111;
+  --text-romaji: #999;
+  --text-buffer: #5bc0de;
+  --border-buffer: #5bc0de;
+  --text-buffer-hint: #aaa;
+  --big-char-color: #111;
+}
+
+[data-theme="dark"] {
+  --bg-body: #1a1a2e;
+  --bg-outer: #16213e;
+  --bg-panel: #1e293b;
+  --bg-panel-heading: #253350;
+  --bg-panel-footer: #1e293b;
+  --border-outer: #2a3a5c;
+  --border-panel: #2a3a5c;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-link: #60a5fa;
+  --bg-navbar: #0f172a;
+  --text-navbar: #e2e8f0;
+  --text-navbar-hover: #94a3b8;
+  --bg-choose-row-hover: #253350;
+  --border-choose-row: #2a3a5c;
+  --bg-alt-row: #1a2744;
+  --border-divider: #334155;
+  --color-check: #4ade80;
+  --color-unchecked: #475569;
+  --color-check-half: #475569;
+  --text-panel-heading-span: #64748b;
+  --bg-switch: #334155;
+  --border-switch: #475569;
+  --bg-switch-toggle: #475569;
+  --border-switch-toggle: #64748b;
+  --shadow-switch-toggle: #1e293b;
+  --border-stage-choice: #475569;
+  --bg-progress: #334155;
+  --text-progress: #cbd5e1;
+  --bg-result-none: #475569;
+  --text-result: #e2e8f0;
+  --bg-answer-btn: #1e293b;
+  --border-answer-btn: #475569;
+  --border-answer-input: #475569;
+  --text-answer-input: #e2e8f0;
+  --bg-stat: #253350;
+  --text-stat: #94a3b8;
+  --bg-viewport: #1e293b;
+  --border-viewport: #2a3a5c;
+  --shadow-viewport: rgba(0,0,0,0.3);
+  --border-kana-row: #2a3a5c;
+  --text-kana: #e2e8f0;
+  --text-kana-pending: #94a3b8;
+  --bg-cell-active: #253350;
+  --text-kana-active: #e2e8f0;
+  --text-romaji: #64748b;
+  --text-buffer: #5bc0de;
+  --border-buffer: #5bc0de;
+  --text-buffer-hint: #64748b;
+  --big-char-color: #e2e8f0;
+}
+
+/* ===== Transition for theme switching ===== */
+html,
+body,
+.outercontainer,
+.navbar-inverse,
+.panel,
+.panel-heading,
+.panel-body,
+.panel-footer,
+.choose-row,
+.progress,
+.previous-result,
+.answer-button,
+.answer-input,
+.kana-cell,
+.rows-viewport,
+.endless-stats .stat,
+.switch,
+.switch-toggle {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ===== Base styles ===== */
 html {
   height: 100%;   /* height sets are for android chrome background fix */
   min-height: 100%;
@@ -5,13 +138,13 @@ html {
 body {
   min-height: 100%;
   font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
-  background-color: #e5e5e5;
-  color: #111;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
 }
 .outercontainer {
-  background-color: #f5f5f5;
+  background-color: var(--bg-outer);
   padding-bottom: 20px;
-  border-bottom: 1px #dadada solid;
+  border-bottom: 1px var(--border-outer) solid;
   min-height: 500px; /* 690 */
   @media (max-width: 768px) {
     min-height: auto;
@@ -29,7 +162,7 @@ body {
   margin-top: 15px;
   margin-bottom: 0;
   a {
-    color: #888;
+    color: var(--text-muted);
   }
 }
 .game {
@@ -38,4 +171,51 @@ body {
 .glyphicon-none:before {
   content: "\2122";
   color: transparent !important;
+}
+
+/* ===== Bootstrap panel overrides for dark mode ===== */
+.panel {
+  background-color: var(--bg-panel);
+  border-color: var(--border-panel);
+}
+.panel-default > .panel-heading {
+  background-color: var(--bg-panel-heading);
+  color: var(--text-primary);
+  border-color: var(--border-panel);
+}
+.panel-body {
+  background-color: var(--bg-panel);
+  color: var(--text-primary);
+}
+.panel-footer {
+  background-color: var(--bg-panel-footer);
+  border-color: var(--border-panel);
+}
+
+/* ===== Bootstrap btn-default override ===== */
+[data-theme="dark"] .btn-default {
+  background-color: var(--bg-answer-btn);
+  border-color: var(--border-answer-btn);
+  color: var(--text-primary);
+}
+[data-theme="dark"] .btn-default:hover,
+[data-theme="dark"] .btn-default:focus {
+  background-color: #334155;
+  border-color: #64748b;
+  color: var(--text-primary);
+}
+
+/* ===== Bootstrap form-control override ===== */
+[data-theme="dark"] .form-control {
+  background-color: var(--bg-panel);
+  border-color: var(--border-answer-btn);
+  color: var(--text-primary);
+}
+
+/* ===== Heading color for dark mode ===== */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4 {
+  color: var(--text-primary);
 }

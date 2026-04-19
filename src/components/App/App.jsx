@@ -2,12 +2,31 @@ import React, { Component } from 'react';
 import './App.scss';
 import Navbar from '../Navbar/Navbar';
 import GameContainer from '../GameContainer/GameContainer';
+import DarkModeToggle from '../DarkModeToggle/DarkModeToggle';
 import { removeHash } from '../../data/helperFuncs';
 
 const options = {};
 
 class App extends Component {
-  state = { gameState: 'chooseCharacters' };
+  state = {
+    gameState: 'chooseCharacters',
+    isDarkMode: JSON.parse(localStorage.getItem('darkMode')) || false
+  };
+
+  componentDidMount() {
+    this.applyTheme(this.state.isDarkMode);
+  }
+
+  applyTheme(isDark) {
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  }
+
+  toggleDarkMode = () => {
+    const newMode = !this.state.isDarkMode;
+    this.setState({ isDarkMode: newMode });
+    localStorage.setItem('darkMode', JSON.stringify(newMode));
+    this.applyTheme(newMode);
+  }
 
   startGame = () => {
     this.setState({gameState: 'game'});
@@ -48,6 +67,10 @@ class App extends Component {
             />
           </div>
         </div>
+        <DarkModeToggle
+          isDark={this.state.isDarkMode}
+          onToggle={this.toggleDarkMode}
+        />
       </div>
     )
   }

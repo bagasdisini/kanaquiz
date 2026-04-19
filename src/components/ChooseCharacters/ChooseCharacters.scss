@@ -12,32 +12,33 @@
     font-weight: bold;
   }
   .panel-heading span {
-    color: #aaa;
+    color: var(--text-panel-heading-span);
   }
   .panel-footer a {
     text-decoration: none;
-    color: #337ab7;
+    color: var(--text-link);
   }
   .choose-row {
     font-size: 1em;
     padding: 5px;
+    color: var(--text-primary);
   }
   .choose-row:not(:last-child) {
-    border-bottom: 1px #eee solid;
+    border-bottom: 1px var(--border-choose-row) solid;
   }
   .alt-row {
     padding-left: 20px;
-    background-color: #fafafa;
+    background-color: var(--bg-alt-row);
   }
   .divider-row {
-    border-top: 2px #ddd solid;
+    border-top: 2px var(--border-divider) solid;
   }
   .toggle-caret {
     margin: 0 4px;
   }
   @media (min-width: 768px) {
     .choose-row:hover {
-      background-color: #f4f4f4;
+      background-color: var(--bg-choose-row-hover);
     }
   }
   .choose-row:hover {
@@ -47,19 +48,19 @@
     font-size: 0.9em;
   }
   .glyphicon-check {
-    color: green;
+    color: var(--color-check);
   }
   .glyphicon-check.half {
-    color: #ccc;
+    color: var(--color-check-half);
   }
   .glyphicon-unchecked {
-    color: #ccc;
+    color: var(--color-unchecked);
   }
   .selection-areas {
     padding: 7px;
   }
   .success-percent {
-    color: #ccc;
+    color: var(--color-unchecked);
   }
 }
 .error-message {
@@ -67,19 +68,21 @@
   padding-bottom: 10px;
 }
 .lock {
-  color: #888;
+  color: var(--text-muted);
   margin-bottom: 10px;
 }
 .stage-choice {
-  border: 1px solid #999;
+  border: 1px solid var(--border-stage-choice);
   padding-left: 5px;
   border-radius: 5px;
   margin-right: 5px;
   outline: none;
+  background-color: var(--bg-panel);
+  color: var(--text-primary);
 }
 .switch {
-  border: 1px solid #ccc;
-  background: #e5e5e5;
+  border: 1px solid var(--border-switch);
+  background: var(--bg-switch);
   width: 44px;
   height: 19px;
   border-radius: 13px;
@@ -90,13 +93,13 @@
 }
 
 .switch-toggle {
-  border: 1px solid #999;
-  box-shadow: 1px 1px 1px #ccc;
+  border: 1px solid var(--border-switch-toggle);
+  box-shadow: 1px 1px 1px var(--shadow-switch-toggle);
   width: 19px;
   height: 17px;
   left: 0;
   border-radius: 12px;
-  background: #eee;
+  background: var(--bg-switch-toggle);
   position: relative;
   transition: left .2s ease-in-out;
 }
