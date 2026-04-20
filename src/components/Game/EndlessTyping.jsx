@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { kanaDictionary } from '../../data/kanaDictionary';
+import { kanaDictionary, kanaMeanings } from '../../data/kanaDictionary';
 import { findRomajisAtKanaKey, shuffle, arrayContains } from '../../data/helperFuncs';
 import './EndlessTyping.scss';
 
@@ -211,7 +211,10 @@ class EndlessTyping extends Component {
 
                   return (
                     <div className={cellClass} key={cellIdx}>
-                      <span className="kana-char">{cell.kana}</span>
+                      <span className="kana-char">
+                        {cell.kana}
+                        {kanaMeanings[cell.kana] && <span className="kana-meaning"> ({kanaMeanings[cell.kana]})</span>}
+                      </span>
                       <span className="romaji-label">
                         {cell.status !== 'pending' ? cell.romajis[0] : ''}
                       </span>

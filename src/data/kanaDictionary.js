@@ -1,4 +1,7 @@
+import { vocab_n5, vocabMeaningsN5 } from './vocabularyN5';
+
 export const kanaDictionary = {
+  'vocab_n5': vocab_n5,
   'hiragana': {
     'h_group1': { characters: { 'あ': ['a'], 'い': ['i'], 'う': ['u'], 'え': ['e'], 'お': ['o'] } },
     'h_group2': { characters: { 'か': ['ka'], 'き': ['ki'], 'く': ['ku'], 'け': ['ke'], 'こ': ['ko'] } },
@@ -61,5 +64,29 @@ export const kanaDictionary = {
     'k_group31_a': { characters: { 'ツァ': ['tsa'], 'ツィ': ['tsi'], 'ツェ': ['tse'], 'ツォ': ['tso'] } },
     'k_group32_a': { characters: { 'チェ': ['che'], 'シェ': ['she'], 'ジェ': ['je'] } },
     'k_group33_a': { characters: { 'ティ': ['ti'], 'ディ': ['di'], 'デュ': ['du'], 'トゥ': ['tu'] } }
+  },
+  'kanji_n5': {
+    'n5_numbers': { characters: { '一': ['ichi', 'itsu', 'hito'], '二': ['ni', 'fu', 'futa'], '三': ['san', 'mi', 'mitsu'], '四': ['shi', 'yon', 'yo', 'yotsu'], '五': ['go', 'itsu'], '六': ['roku', 'mu', 'mutsu'], '七': ['shichi', 'nana'], '八': ['hachi', 'ya', 'yatsu'], '九': ['kyuu', 'ku', 'kokono'], '十': ['juu', 'ji', 'to'] } },
+    'n5_counters_time': { characters: { '百': ['hyaku', 'byaku', 'pyaku'], '千': ['sen', 'zen'], '万': ['man', 'ban'], '円': ['en', 'maru'], '年': ['nen', 'toshi'], '時': ['ji', 'toki'], '分': ['bun', 'fun', 'min', 'wa'], '半': ['han', 'naka'], '夕': ['yuu'], '今': ['kon', 'kin', 'ima'], '毎': ['mai'], '午': ['go'], '曜': ['you'], '昼': ['hiru', 'chuu'], '週': ['shuu'] } },
+    'n5_nature': { characters: { '日': ['nichi', 'jitsu', 'hi', 'bi', 'ka'], '月': ['getsu', 'gatsu', 'tsuki'], '火': ['ka', 'hi', 'bi'], '水': ['sui', 'mizu'], '木': ['moku', 'boku', 'ki', 'ko'], '金': ['kin', 'kon', 'kane', 'kana'], '土': ['do', 'to', 'tsuchi'], '山': ['yama', 'san'], '川': ['kawa', 'gawa', 'sen'], '空': ['kuu', 'sora'], '天': ['ten', 'amatsu'], '雨': ['ame', 'u'], '電': ['den'], '花': ['hana', 'ka'], '白': ['haku', 'byaku', 'shiro', 'shira'], '黒': ['kuro', 'koku'] } },
+    'n5_people_concepts': { characters: { '人': ['jin', 'nin', 'hito'], '男': ['dan', 'nan', 'otoko'], '女': ['jo', 'nyo', 'onna'], '子': ['shi', 'su', 'ko'], '母': ['bo', 'haha'], '父': ['fu', 'chichi'], '友': ['yuu', 'tomo'], '手': ['te', 'shu'], '足': ['ashi', 'ta', 'soku'], '目': ['me', 'moku'], '耳': ['mimi', 'ji'], '口': ['kuchi', 'kou'], '本': ['hon', 'moto'], '何': ['ka', 'nani', 'nan'], '気': ['ki', 'ke'], '生': ['sei', 'shou', 'i', 'u', 'o', 'ha', 'ki', 'nama'], '学': ['gaku', 'mana'], '校': ['kou'], '先': ['sen', 'saki'], '車': ['sha', 'kuruma'], '名': ['na', 'mei'] } },
+    'n5_locations_directions': { characters: { '上': ['jou', 'shou', 'ue', 'uwa', 'kami', 'a', 'nobo'], '下': ['ka', 'ge', 'shita', 'shimo', 'moto', 'sa', 'kuda', 'o'], '左': ['sa', 'hidari'], '右': ['u', 'yuu', 'migi'], '中': ['chuu', 'naka'], '北': ['hoku', 'kita'], '南': ['nan', 'na', 'minami'], '西': ['sei', 'sai', 'nishi'], '東': ['tou', 'higashi'], '外': ['gai', 'ge', 'soto', 'hoka', 'hazu'], '国': ['koku', 'kuni'], '前': ['mae', 'zen'], '後': ['ato', 'ushiro', 'nochi', 'go', 'kou'], '間': ['aida', 'ma', 'kan'], '駅': ['eki'], '道': ['michi', 'dou'], '店': ['mise', 'ten'], '社': ['sha', 'yashiro'], '銀': ['gin'] } },
+    'n5_adjectives': { characters: { '大': ['dai', 'tai', 'oo'], '小': ['shou', 'chii', 'ko', 'o'], '長': ['chou', 'naga'], '高': ['kou', 'taka'], '安': ['an', 'yasu'], '新': ['shin', 'atara', 'ara', 'nii'], '古': ['ko', 'furu'], '多': ['ta', 'oo'], '少': ['shou', 'suko', 'suku'], '赤': ['aka', 'seki'], '青': ['ao', 'sei'], '茶': ['cha', 'sa'], '色': ['iro', 'shoku'], '暗': ['kura', 'an'], '明': ['aka', 'mei'] } },
+    'n5_verbs': { characters: { '行': ['kou', 'gyou', 'an', 'i', 'yu', 'okona'], '来': ['rai', 'tai', 'ku', 'kita', 'ki', 'ko'], '入': ['nyuu', 'i', 'hai'], '出': ['shutsu', 'sui', 'de', 'da'], '見': ['ken', 'mi'], '聞': ['bun', 'mon', 'ki'], '食': ['shoku', 'jiki', 'ta', 'ku'], '飲': ['in', 'no'], '言': ['gen', 'gon', 'i', 'koto'], '語': ['go', 'kata'], '読': ['doku', 'toku', 'tou', 'yo'], '書': ['sho', 'ka'], '買': ['bai', 'ka'], '休': ['kyuu', 'yasu'], '立': ['tatsu', 'ritsu'], '話': ['hanashi', 'hana', 'wa'], '会': ['au', 'kai'], '帰': ['kae', 'ki'], '待': ['ma', 'tai'], '知': ['shi', 'chi'] } }
   }
+};
+
+export const kanaMeanings = {
+  '一': 'One', '二': 'Two', '三': 'Three', '四': 'Four', '五': 'Five', '六': 'Six', '七': 'Seven', '八': 'Eight', '九': 'Nine', '十': 'Ten',
+  '百': 'Hundred', '千': 'Thousand', '万': 'Ten Thousand', '円': 'Yen / Circle', '年': 'Year', '時': 'Time / Hour', '分': 'Minute / Part', '半': 'Half', '夕': 'Evening', '今': 'Now', '毎': 'Every', '午': 'Noon', '曜': 'Weekday', '昼': 'Noon / Daytime',
+  '日': 'Day / Sun', '月': 'Month / Moon', '火': 'Fire', '水': 'Water', '木': 'Tree / Wood', '金': 'Gold / Money', '土': 'Earth / Soil', '山': 'Mountain', '川': 'River', '空': 'Sky / Empty', '天': 'Heaven', '雨': 'Rain', '電': 'Electricity', '花': 'Flower',
+  '人': 'Person', '男': 'Man', '女': 'Woman', '子': 'Child', '母': 'Mother', '父': 'Father', '友': 'Friend', '手': 'Hand', '足': 'Foot / Leg', '目': 'Eye', '耳': 'Ear', '口': 'Mouth',
+  '本': 'Book / Origin', '何': 'What', '気': 'Spirit / Mind', '生': 'Life / Born', '学': 'Study / Learning', '校': 'School', '先': 'Before / Ahead', '車': 'Car', '名': 'Name',
+  '上': 'Up / Above', '下': 'Down / Below', '左': 'Left', '右': 'Right', '中': 'Inside / Middle', '北': 'North', '南': 'South', '西': 'West', '東': 'East', '外': 'Outside', '国': 'Country', '前': 'Before / Front', '後': 'After / Behind', '間': 'Interval / Between', '駅': 'Station', '道': 'Street / Path',
+  '大': 'Big / Large', '小': 'Small', '長': 'Long / Leader', '高': 'High / Expensive', '安': 'Cheap / Safe', '新': 'New', '古': 'Old', '多': 'Many / Much', '少': 'Few / Little', '白': 'White', '黒': 'Black',
+  '行': 'Go', '来': 'Come', '入': 'Enter', '出': 'Exit', '見': 'See', '聞': 'Hear / Listen', '食': 'Eat', '飲': 'Drink', '言': 'Say / Word', '語': 'Language / Word', '読': 'Read', '書': 'Write', '買': 'Buy', '休': 'Rest / Holiday', '立': 'Stand', '話': 'Talk / Story', '会': 'Meet',
+  '週': 'Week', '店': 'Shop / Store', '社': 'Company / Shrine', '銀': 'Silver',
+  '赤': 'Red', '青': 'Blue', '茶': 'Tea / Brown', '色': 'Color', '暗': 'Dark', '明': 'Bright',
+  '帰': 'Return / Go home', '待': 'Wait', '知': 'Know',
+  ...vocabMeaningsN5
 };

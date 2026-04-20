@@ -178,8 +178,8 @@ class ChooseCharacters extends Component {
       if (groupName == "k_group11_s")
         rows.push(this.alternativeToggleRow(whichKana, "_s", showSimilars));
 
-      if ((!groupName.endsWith("a") || showAlternatives) &&
-        (!groupName.endsWith("s") || showSimilars)) {
+      if ((!groupName.endsWith("_a") || showAlternatives) &&
+        (!groupName.endsWith("_s") || showSimilars)) {
         rows.push(<CharacterGroup
           key={idx}
           groupName={groupName}
@@ -231,6 +231,30 @@ class ChooseCharacters extends Component {
                 </a>
                 &nbsp;&middot;&nbsp; <a href="javascript:;" onClick={() => this.selectAll('katakana', true)}>All alternative</a>
                 &nbsp;&middot;&nbsp; <a href="javascript:;" onClick={() => this.selectNone('katakana', true)}>No alternative</a>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-12">
+            <div className="panel panel-default">
+              <div className="panel-heading">Kanji N5 · 漢字</div>
+              <div className="panel-body selection-areas kanji-selection-areas">
+                {this.showGroupRows('kanji_n5', false, false)}
+              </div>
+              <div className="panel-footer text-center">
+                <a href="javascript:;" onClick={() => this.selectAll('kanji_n5')}>All</a> &nbsp;&middot;&nbsp; <a href="javascript:;"
+                  onClick={() => this.selectNone('kanji_n5')}>None</a>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-12">
+            <div className="panel panel-default">
+              <div className="panel-heading">Vocabulary N5 · 単語</div>
+              <div className="panel-body selection-areas kanji-selection-areas">
+                {this.showGroupRows('vocab_n5', false, false)}
+              </div>
+              <div className="panel-footer text-center">
+                <a href="javascript:;" onClick={() => this.selectAll('vocab_n5')}>All</a> &nbsp;&middot;&nbsp; <a href="javascript:;"
+                  onClick={() => this.selectNone('vocab_n5')}>None</a>
               </div>
             </div>
           </div>
