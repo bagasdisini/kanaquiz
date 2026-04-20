@@ -10,7 +10,8 @@ class ChooseCharacters extends Component {
     selectedGroups: this.props.selectedGroups,
     showAlternatives: [],
     showSimilars: [],
-    startIsVisible: true
+    startIsVisible: true,
+    collapsedSections: JSON.parse(localStorage.getItem('collapsedSections')) || []
   }
 
   componentDidMount() {
@@ -45,6 +46,22 @@ class ChooseCharacters extends Component {
       const scrollPos = absTop - window.innerHeight + 50;
       window.scrollTo(0, scrollPos > 0 ? scrollPos : 0);
     }
+  }
+
+  toggleSectionCollapse = (sectionName) => {
+    let collapsedSections = [...this.state.collapsedSections];
+    const index = collapsedSections.indexOf(sectionName);
+    if (index > -1) {
+      collapsedSections.splice(index, 1);
+    } else {
+      collapsedSections.push(sectionName);
+    }
+    this.setState({ collapsedSections });
+    localStorage.setItem('collapsedSections', JSON.stringify(collapsedSections));
+  }
+
+  isSectionCollapsed = (sectionName) => {
+    return this.state.collapsedSections.indexOf(sectionName) > -1;
   }
 
   getIndex(groupName) {
@@ -207,55 +224,83 @@ class ChooseCharacters extends Component {
         <div className="row">
           <div className="col-sm-6">
             <div className="panel panel-default">
-              <div className="panel-heading">Hiragana · ひらがな</div>
-              <div className="panel-body selection-areas">
-                {this.showGroupRows('hiragana', this.state.showAlternatives.indexOf('hiragana') >= 0)}
+              <div className="panel-heading clickable" onClick={() => this.toggleSectionCollapse('hiragana')}>
+                {this.isSectionCollapsed('hiragana') ? <span className="caret-icon">&#9654;</span> : <span className="caret-icon">&#9660;</span>}
+                Hiragana · ひらがな
               </div>
-              <div className="panel-footer text-center">
-                <a href="javascript:;" onClick={() => this.selectAll('hiragana')}>All</a> &nbsp;&middot;&nbsp; <a href="javascript:;"
-                  onClick={() => this.selectNone('hiragana')}>None</a>
-                &nbsp;&middot;&nbsp; <a href="javascript:;" onClick={() => this.selectAll('hiragana', true)}>All alternative</a>
-                &nbsp;&middot;&nbsp; <a href="javascript:;" onClick={() => this.selectNone('hiragana', true)}>No alternative</a>
-              </div>
+              {!this.isSectionCollapsed('hiragana') && (
+                <React.Fragment>
+                  <div className="panel-body selection-areas">
+                    {this.showGroupRows('hiragana', this.state.showAlternatives.indexOf('hiragana') >= 0)}
+                  </div>
+                  <div className="panel-footer text-center">
+                    <a href="javascript:;" onClick={() => this.selectAll('hiragana')}>All</a> &nbsp;&middot;&nbsp; <a href="javascript:;"
+                      onClick={() => this.selectNone('hiragana')}>None</a>
+                    &nbsp;&middot;&nbsp; <a href="javascript:;" onClick={() => this.selectAll('hiragana', true)}>All alternative</a>
+                    &nbsp;&middot;&nbsp; <a href="javascript:;" onClick={() => this.selectNone('hiragana', true)}>No alternative</a>
+                  </div>
+                </React.Fragment>
+              )}
             </div>
           </div>
           <div className="col-sm-6">
             <div className="panel panel-default">
-              <div className="panel-heading">Katakana · カタカナ</div>
-              <div className="panel-body selection-areas">
-                {this.showGroupRows('katakana', this.state.showAlternatives.indexOf('katakana') >= 0, this.state.showSimilars.indexOf('katakana') >= 0)}
+              <div className="panel-heading clickable" onClick={() => this.toggleSectionCollapse('katakana')}>
+                {this.isSectionCollapsed('katakana') ? <span className="caret-icon">&#9654;</span> : <span className="caret-icon">&#9660;</span>}
+                Katakana · カタカナ
               </div>
-              <div className="panel-footer text-center">
-                <a href="javascript:;" onClick={() => this.selectAll('katakana')}>All</a> &nbsp;&middot;&nbsp; <a href="javascript:;"
-                  onClick={() => this.selectNone('katakana')}>None
-                </a>
-                &nbsp;&middot;&nbsp; <a href="javascript:;" onClick={() => this.selectAll('katakana', true)}>All alternative</a>
-                &nbsp;&middot;&nbsp; <a href="javascript:;" onClick={() => this.selectNone('katakana', true)}>No alternative</a>
-              </div>
+              {!this.isSectionCollapsed('katakana') && (
+                <React.Fragment>
+                  <div className="panel-body selection-areas">
+                    {this.showGroupRows('katakana', this.state.showAlternatives.indexOf('katakana') >= 0, this.state.showSimilars.indexOf('katakana') >= 0)}
+                  </div>
+                  <div className="panel-footer text-center">
+                    <a href="javascript:;" onClick={() => this.selectAll('katakana')}>All</a> &nbsp;&middot;&nbsp; <a href="javascript:;"
+                      onClick={() => this.selectNone('katakana')}>None
+                    </a>
+                    &nbsp;&middot;&nbsp; <a href="javascript:;" onClick={() => this.selectAll('katakana', true)}>All alternative</a>
+                    &nbsp;&middot;&nbsp; <a href="javascript:;" onClick={() => this.selectNone('katakana', true)}>No alternative</a>
+                  </div>
+                </React.Fragment>
+              )}
             </div>
           </div>
           <div className="col-sm-12">
             <div className="panel panel-default">
-              <div className="panel-heading">Kanji N5 · 漢字</div>
-              <div className="panel-body selection-areas kanji-selection-areas">
-                {this.showGroupRows('kanji_n5', false, false)}
+              <div className="panel-heading clickable" onClick={() => this.toggleSectionCollapse('kanji_n5')}>
+                {this.isSectionCollapsed('kanji_n5') ? <span className="caret-icon">&#9654;</span> : <span className="caret-icon">&#9660;</span>}
+                Kanji N5 · 漢字
               </div>
-              <div className="panel-footer text-center">
-                <a href="javascript:;" onClick={() => this.selectAll('kanji_n5')}>All</a> &nbsp;&middot;&nbsp; <a href="javascript:;"
-                  onClick={() => this.selectNone('kanji_n5')}>None</a>
-              </div>
+              {!this.isSectionCollapsed('kanji_n5') && (
+                <React.Fragment>
+                  <div className="panel-body selection-areas kanji-selection-areas">
+                    {this.showGroupRows('kanji_n5', false, false)}
+                  </div>
+                  <div className="panel-footer text-center">
+                    <a href="javascript:;" onClick={() => this.selectAll('kanji_n5')}>All</a> &nbsp;&middot;&nbsp; <a href="javascript:;"
+                      onClick={() => this.selectNone('kanji_n5')}>None</a>
+                  </div>
+                </React.Fragment>
+              )}
             </div>
           </div>
           <div className="col-sm-12">
             <div className="panel panel-default">
-              <div className="panel-heading">Vocabulary N5 · 単語</div>
-              <div className="panel-body selection-areas kanji-selection-areas">
-                {this.showGroupRows('vocab_n5', false, false)}
+              <div className="panel-heading clickable" onClick={() => this.toggleSectionCollapse('vocab_n5')}>
+                {this.isSectionCollapsed('vocab_n5') ? <span className="caret-icon">&#9654;</span> : <span className="caret-icon">&#9660;</span>}
+                Vocabulary N5 · 単語
               </div>
-              <div className="panel-footer text-center">
-                <a href="javascript:;" onClick={() => this.selectAll('vocab_n5')}>All</a> &nbsp;&middot;&nbsp; <a href="javascript:;"
-                  onClick={() => this.selectNone('vocab_n5')}>None</a>
-              </div>
+              {!this.isSectionCollapsed('vocab_n5') && (
+                <React.Fragment>
+                  <div className="panel-body selection-areas kanji-selection-areas">
+                    {this.showGroupRows('vocab_n5', false, false)}
+                  </div>
+                  <div className="panel-footer text-center">
+                    <a href="javascript:;" onClick={() => this.selectAll('vocab_n5')}>All</a> &nbsp;&middot;&nbsp; <a href="javascript:;"
+                      onClick={() => this.selectNone('vocab_n5')}>None</a>
+                  </div>
+                </React.Fragment>
+              )}
             </div>
           </div>
           <div className="col-sm-3 col-xs-12 pull-right">

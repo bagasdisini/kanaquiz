@@ -10,6 +10,18 @@
 {
   .panel-heading {
     font-weight: bold;
+    &.clickable {
+      cursor: pointer;
+      user-select: none;
+      &:hover {
+        background-color: var(--bg-choose-row-hover);
+      }
+    }
+  }
+  .caret-icon {
+    display: inline-block;
+    width: 20px;
+    font-size: 0.8em;
   }
   .panel-heading span {
     color: var(--text-panel-heading-span);
