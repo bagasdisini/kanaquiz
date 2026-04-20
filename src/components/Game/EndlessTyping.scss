@@ -81,6 +81,14 @@
       line-height: 1.2;
       color: var(--text-kana);
       transition: color 0.2s ease;
+
+      .kana-meaning {
+        font-size: 0.35em;
+        display: block;
+        color: var(--text-romaji);
+        line-height: 1.1;
+        margin-top: 5px;
+      }
     }
 
     .romaji-label {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { kanaDictionary } from '../../data/kanaDictionary';
+import { kanaDictionary, kanaMeanings } from '../../data/kanaDictionary';
 import { quizSettings } from '../../data/quizSettings';
 import { findRomajisAtKanaKey, removeFromArray, arrayContains, shuffle, cartesianProduct } from '../../data/helperFuncs';
 import EndlessTyping from './EndlessTyping';
@@ -160,7 +160,19 @@ class Question extends Component {
   getShowableQuestion() {
     if(this.getAnswerType()=='kana')
       return findRomajisAtKanaKey(this.state.currentQuestion, kanaDictionary)[0];
-    else return this.state.currentQuestion;
+    else {
+      const q = this.state.currentQuestion;
+      const meaning = kanaMeanings[q];
+      if (meaning) {
+        return (
+          <span style={{display: 'inline-block', lineHeight: '1'}}>
+            {q}
+            <span style={{fontSize: '0.35em', display: 'block', color: 'var(--text-muted, #777)', marginTop: '5px'}}>{meaning}</span>
+          </span>
+        );
+      }
+      return q;
+    }
   }
 
   getPreviousResult() {
