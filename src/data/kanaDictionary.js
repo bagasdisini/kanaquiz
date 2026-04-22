@@ -1,62 +1,64 @@
 import { vocab_n5, vocabMeaningsN5 } from './vocabularyN5';
+import { vocab_n4, vocabMeaningsN4 } from './vocabularyN4';
 
 export const kanaDictionary = {
   'vocab_n5': vocab_n5,
+  'vocab_n4': vocab_n4,
   'hiragana': {
     'h_group1': { characters: { 'あ': ['a'], 'い': ['i'], 'う': ['u'], 'え': ['e'], 'お': ['o'] } },
     'h_group2': { characters: { 'か': ['ka'], 'き': ['ki'], 'く': ['ku'], 'け': ['ke'], 'こ': ['ko'] } },
-    'h_group3': { characters: { 'さ': ['sa'], 'し': ['shi','si'], 'す': ['su'], 'せ': ['se'], 'そ': ['so'] } },
-    'h_group4': { characters: { 'た': ['ta'], 'ち': ['chi','ti'], 'つ': ['tsu','tu'], 'て': ['te'], 'と': ['to'] } },
+    'h_group3': { characters: { 'さ': ['sa'], 'し': ['shi', 'si'], 'す': ['su'], 'せ': ['se'], 'そ': ['so'] } },
+    'h_group4': { characters: { 'た': ['ta'], 'ち': ['chi', 'ti'], 'つ': ['tsu', 'tu'], 'て': ['te'], 'と': ['to'] } },
     'h_group5': { characters: { 'な': ['na'], 'に': ['ni'], 'ぬ': ['nu'], 'ね': ['ne'], 'の': ['no'] } },
-    'h_group6': { characters: { 'は': ['ha'], 'ひ': ['hi'], 'ふ': ['fu','hu'], 'へ': ['he'], 'ほ': ['ho'] } },
+    'h_group6': { characters: { 'は': ['ha'], 'ひ': ['hi'], 'ふ': ['fu', 'hu'], 'へ': ['he'], 'ほ': ['ho'] } },
     'h_group7': { characters: { 'ま': ['ma'], 'み': ['mi'], 'む': ['mu'], 'め': ['me'], 'も': ['mo'] } },
     'h_group8': { characters: { 'や': ['ya'], 'ゆ': ['yu'], 'よ': ['yo'] } },
     'h_group9': { characters: { 'ら': ['ra'], 'り': ['ri'], 'る': ['ru'], 'れ': ['re'], 'ろ': ['ro'] } },
-    'h_group10': { characters: { 'わ': ['wa'], 'を': ['wo','o'], 'ん': ['n'] } },
+    'h_group10': { characters: { 'わ': ['wa'], 'を': ['wo', 'o'], 'ん': ['n'] } },
     'h_group11_a': { characters: { 'が': ['ga'], 'ぎ': ['gi'], 'ぐ': ['gu'], 'げ': ['ge'], 'ご': ['go'] } },
-    'h_group12_a': { characters: { 'ざ': ['za'], 'じ': ['ji','zi'], 'ず': ['zu','du'], 'ぜ': ['ze'], 'ぞ': ['zo'] } },
-    'h_group13_a': { characters: { 'だ': ['da'], 'ぢ': ['ji','di','dzi'], 'づ': ['zu','dzu'], 'で': ['de'], 'ど': ['do'] } },
+    'h_group12_a': { characters: { 'ざ': ['za'], 'じ': ['ji', 'zi'], 'ず': ['zu', 'du'], 'ぜ': ['ze'], 'ぞ': ['zo'] } },
+    'h_group13_a': { characters: { 'だ': ['da'], 'ぢ': ['ji', 'di', 'dzi'], 'づ': ['zu', 'dzu'], 'で': ['de'], 'ど': ['do'] } },
     'h_group14_a': { characters: { 'ば': ['ba'], 'び': ['bi'], 'ぶ': ['bu'], 'べ': ['be'], 'ぼ': ['bo'] } },
     'h_group15_a': { characters: { 'ぱ': ['pa'], 'ぴ': ['pi'], 'ぷ': ['pu'], 'ぺ': ['pe'], 'ぽ': ['po'] } },
     'h_group16_a': { characters: { 'きゃ': ['kya'], 'きゅ': ['kyu'], 'きょ': ['kyo'] } },
-    'h_group17_a': { characters: { 'しゃ': ['sha','sya'], 'しゅ': ['shu','syu'], 'しょ': ['sho','syo'] } },
-    'h_group18_a': { characters: { 'ちゃ': ['cha','cya','tya'], 'ちゅ': ['chu','cyu'], 'ちょ': ['cho','cyo'] } },
+    'h_group17_a': { characters: { 'しゃ': ['sha', 'sya'], 'しゅ': ['shu', 'syu'], 'しょ': ['sho', 'syo'] } },
+    'h_group18_a': { characters: { 'ちゃ': ['cha', 'cya', 'tya'], 'ちゅ': ['chu', 'cyu'], 'ちょ': ['cho', 'cyo'] } },
     'h_group19_a': { characters: { 'にゃ': ['nya'], 'にゅ': ['nyu'], 'にょ': ['nyo'] } },
     'h_group20_a': { characters: { 'ひゃ': ['hya'], 'ひゅ': ['hyu'], 'ひょ': ['hyo'] } },
     'h_group21_a': { characters: { 'みゃ': ['mya'], 'みゅ': ['myu'], 'みょ': ['myo'] } },
     'h_group22_a': { characters: { 'りゃ': ['rya'], 'りゅ': ['ryu'], 'りょ': ['ryo'] } },
     'h_group23_a': { characters: { 'ぎゃ': ['gya'], 'ぎゅ': ['gyu'], 'ぎょ': ['gyo'] } },
-    'h_group24_a': { characters: { 'じゃ': ['ja','jya'], 'じゅ': ['ju','jyu'], 'じょ': ['jo','jyo'] } },
+    'h_group24_a': { characters: { 'じゃ': ['ja', 'jya'], 'じゅ': ['ju', 'jyu'], 'じょ': ['jo', 'jyo'] } },
     'h_group25_a': { characters: { 'びゃ': ['bya'], 'びゅ': ['byu'], 'びょ': ['byo'] } },
     'h_group26_a': { characters: { 'ぴゃ': ['pya'], 'ぴゅ': ['pyu'], 'ぴょ': ['pyo'] } }
   },
   'katakana': {
     'k_group1': { characters: { 'ア': ['a'], 'イ': ['i'], 'ウ': ['u'], 'エ': ['e'], 'オ': ['o'] } },
     'k_group2': { characters: { 'カ': ['ka'], 'キ': ['ki'], 'ク': ['ku'], 'ケ': ['ke'], 'コ': ['ko'] } },
-    'k_group3': { characters: { 'サ': ['sa'], 'シ': ['shi','si'], 'ス': ['su'], 'セ': ['se'], 'ソ': ['so'] } },
-    'k_group4': { characters: { 'タ': ['ta'], 'チ': ['chi','ti'], 'ツ': ['tsu','tu'], 'テ': ['te'], 'ト': ['to'] } },
+    'k_group3': { characters: { 'サ': ['sa'], 'シ': ['shi', 'si'], 'ス': ['su'], 'セ': ['se'], 'ソ': ['so'] } },
+    'k_group4': { characters: { 'タ': ['ta'], 'チ': ['chi', 'ti'], 'ツ': ['tsu', 'tu'], 'テ': ['te'], 'ト': ['to'] } },
     'k_group5': { characters: { 'ナ': ['na'], 'ニ': ['ni'], 'ヌ': ['nu'], 'ネ': ['ne'], 'ノ': ['no'] } },
-    'k_group6': { characters: { 'ハ': ['ha'], 'ヒ': ['hi'], 'フ': ['fu','hu'], 'ヘ': ['he'], 'ホ': ['ho'] } },
+    'k_group6': { characters: { 'ハ': ['ha'], 'ヒ': ['hi'], 'フ': ['fu', 'hu'], 'ヘ': ['he'], 'ホ': ['ho'] } },
     'k_group7': { characters: { 'マ': ['ma'], 'ミ': ['mi'], 'ム': ['mu'], 'メ': ['me'], 'モ': ['mo'] } },
     'k_group8': { characters: { 'ヤ': ['ya'], 'ユ': ['yu'], 'ヨ': ['yo'] } },
     'k_group9': { characters: { 'ラ': ['ra'], 'リ': ['ri'], 'ル': ['ru'], 'レ': ['re'], 'ロ': ['ro'] } },
-    'k_group10': { characters: { 'ワ': ['wa'], 'ヲ': ['wo','o'], 'ン': ['n'] } },
-    'k_group11_s': { characters: { 'シ': ['shi','si'], 'ツ': ['tsu','tu'], 'ソ': ['so'], 'ン': ['n'], 'ノ': ['no'] } },
-    'k_group12_s': { characters: { 'ウ': ['u'], 'フ': ['fu','hu'], 'ワ': ['wa'], 'ラ': ['ra'], 'ス': ['su'], 'ヌ': ['nu'], 'ヲ': ['wo','o'] } },
+    'k_group10': { characters: { 'ワ': ['wa'], 'ヲ': ['wo', 'o'], 'ン': ['n'] } },
+    'k_group11_s': { characters: { 'シ': ['shi', 'si'], 'ツ': ['tsu', 'tu'], 'ソ': ['so'], 'ン': ['n'], 'ノ': ['no'] } },
+    'k_group12_s': { characters: { 'ウ': ['u'], 'フ': ['fu', 'hu'], 'ワ': ['wa'], 'ラ': ['ra'], 'ス': ['su'], 'ヌ': ['nu'], 'ヲ': ['wo', 'o'] } },
     'k_group13_a': { characters: { 'ガ': ['ga'], 'ギ': ['gi'], 'グ': ['gu'], 'ゲ': ['ge'], 'ゴ': ['go'] } },
-    'k_group14_a': { characters: { 'ザ': ['za'], 'ジ': ['ji','zi'], 'ズ': ['zu','du'], 'ゼ': ['ze'], 'ゾ': ['zo'] } },
-    'k_group15_a': { characters: { 'ダ': ['da'], 'ヂ': ['ji','di','dzi'], 'ヅ': ['zu','dzu'], 'デ': ['de'], 'ド': ['do'] } },
+    'k_group14_a': { characters: { 'ザ': ['za'], 'ジ': ['ji', 'zi'], 'ズ': ['zu', 'du'], 'ゼ': ['ze'], 'ゾ': ['zo'] } },
+    'k_group15_a': { characters: { 'ダ': ['da'], 'ヂ': ['ji', 'di', 'dzi'], 'ヅ': ['zu', 'dzu'], 'デ': ['de'], 'ド': ['do'] } },
     'k_group16_a': { characters: { 'バ': ['ba'], 'ビ': ['bi'], 'ブ': ['bu'], 'ベ': ['be'], 'ボ': ['bo'] } },
     'k_group17_a': { characters: { 'パ': ['pa'], 'ピ': ['pi'], 'プ': ['pu'], 'ペ': ['pe'], 'ポ': ['po'] } },
     'k_group18_a': { characters: { 'キャ': ['kya'], 'キュ': ['kyu'], 'キョ': ['kyo'] } },
-    'k_group19_a': { characters: { 'シャ': ['sha','sya'], 'シュ': ['shu','syu'], 'ショ': ['sho','syo'] } },
-    'k_group20_a': { characters: { 'チャ': ['cha','cya','tya'], 'チュ': ['chu','cyu'], 'チョ': ['cho','cyo'] } },
+    'k_group19_a': { characters: { 'シャ': ['sha', 'sya'], 'シュ': ['shu', 'syu'], 'ショ': ['sho', 'syo'] } },
+    'k_group20_a': { characters: { 'チャ': ['cha', 'cya', 'tya'], 'チュ': ['chu', 'cyu'], 'チョ': ['cho', 'cyo'] } },
     'k_group21_a': { characters: { 'ニャ': ['nya'], 'ニュ': ['nyu'], 'ニョ': ['nyo'] } },
     'k_group22_a': { characters: { 'ヒャ': ['hya'], 'ヒュ': ['hyu'], 'ヒョ': ['hyo'] } },
     'k_group23_a': { characters: { 'ミャ': ['mya'], 'ミュ': ['myu'], 'ミョ': ['myo'] } },
     'k_group24_a': { characters: { 'リャ': ['rya'], 'リュ': ['ryu'], 'リョ': ['ryo'] } },
     'k_group25_a': { characters: { 'ギャ': ['gya'], 'ギュ': ['gyu'], 'ギョ': ['gyo'] } },
-    'k_group26_a': { characters: { 'ジャ': ['ja','jya'], 'ジュ': ['ju','jyu'], 'ジョ': ['jo','jyo'] } },
+    'k_group26_a': { characters: { 'ジャ': ['ja', 'jya'], 'ジュ': ['ju', 'jyu'], 'ジョ': ['jo', 'jyo'] } },
     'k_group27_a': { characters: { 'ビャ': ['bya'], 'ビュ': ['byu'], 'ビョ': ['byo'] } },
     'k_group28_a': { characters: { 'ピャ': ['pya'], 'ピュ': ['pyu'], 'ピョ': ['pyo'] } },
     'k_group29_a': { characters: { 'ファ': ['fa'], 'フィ': ['fi'], 'フェ': ['fe'], 'フォ': ['fo'], 'フュ': ['fyu'] } },
@@ -73,8 +75,16 @@ export const kanaDictionary = {
     'n5_locations_directions': { characters: { '上': ['jou', 'shou', 'ue', 'uwa', 'kami', 'a', 'nobo'], '下': ['ka', 'ge', 'shita', 'shimo', 'moto', 'sa', 'kuda', 'o'], '左': ['sa', 'hidari'], '右': ['u', 'yuu', 'migi'], '中': ['chuu', 'naka'], '北': ['hoku', 'kita'], '南': ['nan', 'na', 'minami'], '西': ['sei', 'sai', 'nishi'], '東': ['tou', 'higashi'], '外': ['gai', 'ge', 'soto', 'hoka', 'hazu'], '国': ['koku', 'kuni'], '前': ['mae', 'zen'], '後': ['ato', 'ushiro', 'nochi', 'go', 'kou'], '間': ['aida', 'ma', 'kan'], '駅': ['eki'], '道': ['michi', 'dou'], '店': ['mise', 'ten'], '社': ['sha', 'yashiro'], '銀': ['gin'] } },
     'n5_adjectives': { characters: { '大': ['dai', 'tai', 'oo'], '小': ['shou', 'chii', 'ko', 'o'], '長': ['chou', 'naga'], '高': ['kou', 'taka'], '安': ['an', 'yasu'], '新': ['shin', 'atara', 'ara', 'nii'], '古': ['ko', 'furu'], '多': ['ta', 'oo'], '少': ['shou', 'suko', 'suku'], '赤': ['aka', 'seki'], '青': ['ao', 'sei'], '茶': ['cha', 'sa'], '色': ['iro', 'shoku'], '暗': ['kura', 'an'], '明': ['aka', 'mei'] } },
     'n5_verbs': { characters: { '行': ['kou', 'gyou', 'an', 'i', 'yu', 'okona'], '来': ['rai', 'tai', 'ku', 'kita', 'ki', 'ko'], '入': ['nyuu', 'i', 'hai'], '出': ['shutsu', 'sui', 'de', 'da'], '見': ['ken', 'mi'], '聞': ['bun', 'mon', 'ki'], '食': ['shoku', 'jiki', 'ta', 'ku'], '飲': ['in', 'no'], '言': ['gen', 'gon', 'i', 'koto'], '語': ['go', 'kata'], '読': ['doku', 'toku', 'tou', 'yo'], '書': ['sho', 'ka'], '買': ['bai', 'ka'], '休': ['kyuu', 'yasu'], '立': ['tatsu', 'ritsu'], '話': ['hanashi', 'hana', 'wa'], '会': ['au', 'kai'], '帰': ['kae', 'ki'], '待': ['ma', 'tai'], '知': ['shi', 'chi'] } }
+  },
+  'kanji_n4': {
+    'n4_verbs_actions': { characters: { '歩': ['ho', 'aruku'], '起': ['ki', 'okiru'], '始': ['shi', 'hajimaru'], '終': ['shuu', 'owaru'], '思': ['shi', 'omou'], '考': ['kou', 'kangaeru'], '作': ['saku', 'tsukuru'], '使': ['shi', 'tsukau'], '持': ['ji', 'motsu'], '急': ['kyuu', 'isogu'], '住': ['juu', 'sumu'], '売': ['bai', 'uru'], '送': ['sou', 'okuru'], '切': ['setsu', 'kiru'], '転': ['ten', 'korobu'], '着': ['chaku', 'kiru'], '洗': ['sen', 'arau'], '歌': ['ka', 'utau'], '走': ['sou', 'hashiru'], '泳': ['ei', 'oyogu'], '遊': ['yuu', 'asobu'], '教': ['kyou', 'oshieru'], '集': ['shuu', 'atsumaru'], '別': ['betsu', 'wakareru'], '死': ['shi', 'shinu'], '借': ['shaku', 'kariru'], '貸': ['tai', 'kasu'], '答': ['tou', 'kotaeru'], '写': ['sha', 'utsusu'], '通': ['tsuu', 'tooru'], '開': ['kai', 'hiraku'], '閉': ['hei', 'shimeru'], '建': ['ken', 'tateru'], '発': ['hatsu', 'hotsu'], '運': ['un', 'hakobu'] } },
+    'n4_society_people': { characters: { '族': ['zoku'], '兄': ['kyou', 'ani'], '弟': ['tei', 'otouto'], '姉': ['shi', 'ane'], '妹': ['mai', 'imouto'], '親': ['shin', 'oya'], '私': ['shi', 'watashi'], '客': ['kyaku'], '者': ['sha', 'mono'], '医': ['i'], '仕': ['shi', 'tsukaeru'], '公': ['kou', 'ooyake'], '主': ['shu', 'nushi'], '員': ['in'], '代': ['dai', 'kawarigawara'] } },
+    'n4_nature_time': { characters: { '春': ['shun', 'haru'], '夏': ['ka', 'natsu'], '秋': ['shuu', 'aki'], '冬': ['tou', 'fuyu'], '朝': ['chou', 'asa'], '夜': ['ya', 'yoru'], '早': ['sou', 'hayai'], '海': ['kai', 'umi'], '風': ['fuu', 'kaze'], '牛': ['gyuu', 'ushi'], '鳥': ['chou', 'tori'], '犬': ['ken', 'inu'], '肉': ['niku'], '魚': ['gyo', 'sakana'], '理': ['ri'], '野': ['ya', 'no'], '地': ['chi', 'ji'], '世': ['sei', 'yo'], '界': ['kai'] } },
+    'n4_places_objects': { characters: { '京': ['kyou'], '都': ['to', 'miyako'], '町': ['chou', 'machi'], '市': ['shi', 'ichi'], '区': ['ku'], '村': ['son', 'mura'], '院': ['in'], '館': ['kan'], '屋': ['oku', 'ya'], '室': ['shitsu', 'muro'], '場': ['jou', 'ba'], '堂': ['dou'], '図': ['zu', 'to'], '物': ['butsu', 'mono'], '品': ['hin', 'shina'], '紙': ['shi', 'kami'], '字': ['ji'], '文': ['bun', 'mon', 'fumi'], '音': ['on', 'oto'], '服': ['fuku'], '薬': ['yaku', 'kusuri'], '台': ['dai', 'tai'] } },
+    'n4_concepts_states': { characters: { '心': ['shin', 'kokoro'], '体': ['tai', 'karada'], '病': ['byou', 'yamai'], '元': ['gen', 'gon', 'moto'], '重': ['juu', 'omoi'], '近': ['kin', 'chikai'], '遠': ['en', 'tooi'], '広': ['kou', 'hiroi'], '悪': ['aku', 'warui'], '同': ['dou', 'onaji'], '自': ['ji', 'shi', 'mizukara'], '正': ['sei', 'shou', 'tadashii'], '意': ['i'], '味': ['mi', 'aji'], '強': ['kyou', 'tsuyoi'], '弱': ['jaku', 'yowai'], '特': ['toku'], '質': ['shitsu', 'tachi'], '問': ['mon', 'tou'], '題': ['dai'], '験': ['ken', 'tamesu'], '勉': ['ben', 'tsutomeru'], '業': ['gyou', 'gou', 'waza'], '計': ['kei', 'hakaru'], '不': ['fu', 'bu'], '無': ['mu', 'bu', 'nai'], '以': ['i'] } }
   }
 };
+
 
 export const kanaMeanings = {
   '一': 'One', '二': 'Two', '三': 'Three', '四': 'Four', '五': 'Five', '六': 'Six', '七': 'Seven', '八': 'Eight', '九': 'Nine', '十': 'Ten',
@@ -88,5 +98,13 @@ export const kanaMeanings = {
   '週': 'Week', '店': 'Shop / Store', '社': 'Company / Shrine', '銀': 'Silver',
   '赤': 'Red', '青': 'Blue', '茶': 'Tea / Brown', '色': 'Color', '暗': 'Dark', '明': 'Bright',
   '帰': 'Return / Go home', '待': 'Wait', '知': 'Know',
-  ...vocabMeaningsN5
+
+  // N4 Kanji Meanings
+  '歩': 'Walk', '起': 'Wake up', '始': 'Begin', '終': 'End', '思': 'Think', '考': 'Think / Consider', '作': 'Make', '使': 'Use', '持': 'Hold', '急': 'Hurry', '住': 'Live', '売': 'Sell', '送': 'Send', '切': 'Cut', '転': 'Turn', '着': 'Arrive / Wear', '洗': 'Wash', '歌': 'Sing', '走': 'Run', '泳': 'Swim', '遊': 'Play', '教': 'Teach', '集': 'Gather', '別': 'Separate', '死': 'Die', '借': 'Borrow', '貸': 'Lend', '答': 'Answer', '写': 'Copy', '通': 'Pass', '開': 'Open', '閉': 'Close', '建': 'Build', '発': 'Emit / Start', '運': 'Carry / Luck',
+  '族': 'Tribe / Family', '兄': 'Older Brother', '弟': 'Younger Brother', '姉': 'Older Sister', '妹': 'Younger Sister', '親': 'Parent', '私': 'I / Private', '客': 'Guest', '者': 'Person', '医': 'Doctor', '仕': 'Serve', '公': 'Public', '主': 'Master / Main', '員': 'Member', '代': 'Substitute / Generation',
+  '春': 'Spring', '夏': 'Summer', '秋': 'Autumn', '冬': 'Winter', '朝': 'Morning', '夜': 'Night', '早': 'Early', '海': 'Sea', '風': 'Wind', '牛': 'Cow', '鳥': 'Bird', '犬': 'Dog', '肉': 'Meat', '魚': 'Fish', '理': 'Reason / Logic', '野': 'Field', '地': 'Ground / Earth', '世': 'World', '界': 'World / Boundary',
+  '京': 'Capital', '都': 'Metropolis', '町': 'Town', '市': 'City', '区': 'Ward', '村': 'Village', '院': 'Institution', '館': 'Building', '屋': 'Roof / Shop', '室': 'Room', '場': 'Place', '堂': 'Hall', '図': 'Map / Drawing', '物': 'Thing', '品': 'Goods', '紙': 'Paper', '字': 'Character', '文': 'Sentence / Literature', '音': 'Sound', '服': 'Clothes', '薬': 'Medicine', '台': 'Stand / Counter',
+  '心': 'Heart', '体': 'Body', '病': 'Illness', '元': 'Origin', '重': 'Heavy', '近': 'Near', '遠': 'Far', '広': 'Wide', '悪': 'Bad', '同': 'Same', '自': 'Self', '正': 'Correct', '意': 'Idea / Mind', '味': 'Taste', '強': 'Strong', '弱': 'Weak', '特': 'Special', '質': 'Quality', '問': 'Question', '題': 'Topic', '験': 'Test', '勉': 'Endeavor', '業': 'Business / Vocation', '計': 'Plan / Measure', '不': 'Not', '無': 'Nothing', '以': 'By means of',
+  ...vocabMeaningsN5,
+  ...vocabMeaningsN4
 };

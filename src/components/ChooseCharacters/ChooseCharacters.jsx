@@ -303,6 +303,44 @@ class ChooseCharacters extends Component {
               )}
             </div>
           </div>
+          <div className="col-sm-12">
+            <div className="panel panel-default">
+              <div className="panel-heading clickable" onClick={() => this.toggleSectionCollapse('kanji_n4')}>
+                {this.isSectionCollapsed('kanji_n4') ? <span className="caret-icon">&#9654;</span> : <span className="caret-icon">&#9660;</span>}
+                Kanji N4 · 漢字
+              </div>
+              {!this.isSectionCollapsed('kanji_n4') && (
+                <React.Fragment>
+                  <div className="panel-body selection-areas kanji-selection-areas">
+                    {this.showGroupRows('kanji_n4', false, false)}
+                  </div>
+                  <div className="panel-footer text-center">
+                    <a href="javascript:;" onClick={() => this.selectAll('kanji_n4')}>All</a> &nbsp;&middot;&nbsp; <a href="javascript:;"
+                      onClick={() => this.selectNone('kanji_n4')}>None</a>
+                  </div>
+                </React.Fragment>
+              )}
+            </div>
+          </div>
+          <div className="col-sm-12">
+            <div className="panel panel-default">
+              <div className="panel-heading clickable" onClick={() => this.toggleSectionCollapse('vocab_n4')}>
+                {this.isSectionCollapsed('vocab_n4') ? <span className="caret-icon">&#9654;</span> : <span className="caret-icon">&#9660;</span>}
+                Vocabulary N4 · 単語
+              </div>
+              {!this.isSectionCollapsed('vocab_n4') && (
+                <React.Fragment>
+                  <div className="panel-body selection-areas kanji-selection-areas">
+                    {this.showGroupRows('vocab_n4', false, false)}
+                  </div>
+                  <div className="panel-footer text-center">
+                    <a href="javascript:;" onClick={() => this.selectAll('vocab_n4')}>All</a> &nbsp;&middot;&nbsp; <a href="javascript:;"
+                      onClick={() => this.selectNone('vocab_n4')}>None</a>
+                  </div>
+                </React.Fragment>
+              )}
+            </div>
+          </div>
           <div className="col-sm-3 col-xs-12 pull-right">
             <span className="pull-right lock">Lock to stage &nbsp;
               {
